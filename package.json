@@ -1,0 +1,22 @@
+{
+  "name": "climatescoop",
+  "version": "1.0.0",
+  "description": "## Full Stack Web Development Course - Final Project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd client && npm start \" \"cd server && npm run server \""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OliveiraDCI/ClimateScoop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OliveiraDCI/ClimateScoop/issues"
+  },
+  "homepage": "https://github.com/OliveiraDCI/ClimateScoop#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
