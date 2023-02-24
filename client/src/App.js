@@ -7,17 +7,25 @@ function App() {
     password: "",
   });
 
-  const handleSubmit = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    console.log("data", data);
+    console.log("data register", data);
 
     const response = await axios.post("/user/register", data);
     console.log("response register", response.data);
   };
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    console.log("data login", data);
+
+    const response = await axios.post("/login/password", data);
+    console.log("response login", response.data);
+  };
+
   return (
     <>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form>
         <section>
           <label>email</label>
           <input
@@ -38,7 +46,8 @@ function App() {
             type='password'
           />
         </section>
-        <button>Register</button>
+        <button onClick={(e) => handleRegister(e)}>Register</button>
+        <button onClick={(e) => handleLogin(e)}>Login</button>
       </form>
     </>
   );
