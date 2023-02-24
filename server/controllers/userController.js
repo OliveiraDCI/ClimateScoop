@@ -1,4 +1,7 @@
 const User = require("../models/User");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const { validationResult } = require("express-validator");
 
 module.exports.register = async (req, res) => {
   try {

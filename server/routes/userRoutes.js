@@ -1,8 +1,10 @@
 const express = require("express");
+const { body } = require("express-validator");
+const userController = require("../controllers/userController");
 
 const router = express.Router();
 
-const userController = require("../controllers/userController");
+// Possibly implement auth fn here, for login and other protected routes
 
 router.post("/register", userController.register);
 
