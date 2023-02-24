@@ -7,6 +7,7 @@ const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const db = require("./config/db");
 db();
+const passport = require("passport")
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 app.use("/user", require("./routes/userRoutes"));
+app.post('/login/password', passport.authenticate('local'));
 
 const port = process.env.PORT || 4001;
 
