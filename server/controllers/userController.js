@@ -7,6 +7,8 @@ module.exports.register = async (req, res) => {
   try {
     console.log("Hello from register", req.body);
 
+    // secure authentication
+
     const user = await User.create(req.body);
 
     res.send({ success: true });
@@ -16,6 +18,3 @@ module.exports.register = async (req, res) => {
     res.send({ success: false, error: error.message });
   }
 };
-
-
-
