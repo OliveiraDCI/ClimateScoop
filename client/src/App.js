@@ -8,8 +8,7 @@ function App() {
   useEffect(() => {
     /* global google */
     google.accounts.id.initialize({
-      client_id:
-        "578869188853-6ejajqimjgjqv493ausg6j9h8i3hj971.apps.googleusercontent.com",
+      client_id: process.env.REACT_APP_GOOGLE_ID,
       callback: handleResponse,
     });
 
