@@ -36,10 +36,10 @@ app.use(helmet.xssFilter()); // Help mitigate Cross Site Scripting
 app.use(helmet.frameguard()); // Sets the X-Frame-Options header to help mitigate clickjacking attack
 app.use(helmet.noSniff()); // sets the X-Content-Type-Options header to nosniff . This mitigates MIME type sniffing which can cause security vulnerabilities
 
-app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
-app.use("/user", require("./routes/userRoutes"));
+app.use(cors());
+app.use("/api/user", require("./routes/userRoutes"));
 
 const port = process.env.PORT || 4001;
 
