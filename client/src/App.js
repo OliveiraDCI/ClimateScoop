@@ -1,73 +1,62 @@
-import LoginButton from "./components/login";
-import LogoutButton from "./components/logout";
-import { gapi } from "gapi-script";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
-const clientId = clientId;
+import jwt from "jwt-decode";
 
 function App() {
-  const [data, setData] = useState({
-    email: "",
-    password: "",
-  });
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    function start() {
-      gapi.client.init({
-        clientId: clientId,
-        scope: "",
-      });
-    }
+    /* global google */
+    google.accounts.id.initialize({
+      client_id:
+        "578869188853-6ejajqimjgjqv493ausg6j9h8i3hj971.apps.googleusercontent.com",
+      callback: handleResponse,
+    });
 
-    gapi.load("client:auth2", start);
-  }, []);
+    google.accounts.id.renderButton(document.getElementById("signIn"), {
+      theme: "outline",
+      size: "medium",
+    });
+  });
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
-    console.log("data register", data);
+  function handleResponse(response) {
+    const token = response.credential;
+    console.log("Encoded JWT ID token: ", token);
 
-    const response = await axios.post("/user/register", data);
-    console.log("response register", response.data);
-  };
+    // bellow, I was sending the token, but I want to change to send the user obj and check if the register function is handling it properly forst - refactor it.
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    console.log("data login", data);
+    if (user) axios.post("/api/user/profile", user);
 
-    const response = await axios.post("/login/password", data);
-    console.log("response login", response.data);
-  };
+    // axios.post("/api/user/profile", {
+    //   headers: {
+    //     Authorization: `Bearer ${token}`,
+    //   },
+    // });
+
+    const userObj = jwt(response.credential);
+    console.log("userObj: ", userObj);
+
+    setUser(userObj);
+    document.getElementById("signIn").hidden = true;
+  }
+
+  function handleSignOut(e) {
+    setUser(null);
+    document.getElementById("signIn").hidden = false;
+  }
 
   return (
     <>
-      <form>
-        <section>
-          <label>email</label>
-          <input
-            value={data.value}
-            onChange={(e) => setData({ ...data, email: e.target.value })}
-            id="email"
-            name="email"
-            type="text"
-          />
-        </section>
-        <section>
-          <label>Password</label>
-          <input
-            id="password"
-            value={data.password}
-            onChange={(e) => setData({ ...data, password: e.target.value })}
-            name="password"
-            type="password"
-          />
-        </section>
-        <button onClick={(e) => handleRegister(e)}>Register</button>
-        <LoginButton />
+      <h1>ClimateScoop</h1>
+      <div id="signIn"></div>
 
-        <button onClick={(e) => handleLogin(e)}>Login</button>
-        <LogoutButton />
-      </form>
+      {user && (
+        <div>
+          <img src={user.picture}></img>
+          <h3>{user.name}</h3>
+        </div>
+      )}
+      {user && <button onClick={handleSignOut}>Sign Out</button>}
     </>
   );
 }
