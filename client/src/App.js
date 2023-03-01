@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import jwt from "jwt-decode";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -13,49 +12,69 @@ function App() {
     });
 
     google.accounts.id.renderButton(document.getElementById("signIn"), {
+      type: "icon",
+      shape: "circle",
       theme: "outline",
       size: "medium",
     });
   });
 
-  function handleResponse(response) {
+  async function handleResponse(response) {
     const token = response.credential;
-    console.log("Encoded JWT ID token: ", token);
+    const loginUser = await axios.post("/api/user/login", { token: token });
 
-    // bellow, I was sending the token, but I want to change to send the user obj and check if the register function is handling it properly forst - refactor it.
-
-    if (user) axios.post("/api/user/profile", user);
-
-    // axios.post("/api/user/profile", {
-    //   headers: {
-    //     Authorization: `Bearer ${token}`,
-    //   },
-    // });
-
-    const userObj = jwt(response.credential);
-    console.log("userObj: ", userObj);
-
-    setUser(userObj);
-    document.getElementById("signIn").hidden = true;
+    if (loginUser.data.success) {
+      setUser(loginUser.data.user);
+      document.getElementById("signIn").hidden = true;
+    }
   }
 
   function handleSignOut(e) {
     setUser(null);
     document.getElementById("signIn").hidden = false;
+    google.accounts.id.disableAutoSelect();
   }
 
   return (
     <>
       <h1>ClimateScoop</h1>
-      <div id="signIn"></div>
+      <div
+        id="signIn"
+        style={{
+          width: "fit-content",
+          margin: "0 auto",
+        }}
+      ></div>
 
       {user && (
-        <div>
-          <img src={user.picture}></img>
-          <h3>{user.name}</h3>
+        <div
+          style={{
+            width: "100%",
+            margin: "0 auto",
+            display: "grid",
+            placeItems: "center",
+          }}
+        >
+          <img
+            src={user.picture}
+            alt="user"
+            width={"34px"}
+            height={"auto"}
+            style={{ borderRadius: "50%" }}
+          ></img>
+          <h4>{user.name}</h4>
         </div>
       )}
-      {user && <button onClick={handleSignOut}>Sign Out</button>}
+      {user && (
+        <button
+          onClick={handleSignOut}
+          style={{
+            width: "100%",
+          }}
+        >
+          Sign Out
+        </button>
+      )}
     </>
   );
 }

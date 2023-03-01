@@ -1,54 +1,63 @@
+require("dotenv").config();
 const User = require("../models/User");
-const jwt = require("jsonwebtoken");
-const { validationResult } = require("express-validator");
+const { OAuth2Client } = require("google-auth-library");
 
 module.exports.login = async (req, res) => {
   try {
-    console.log("userController login - req.body: ", req.body);
+    const token = req.body.token;
+    const audience = process.env.CLIENT_ID;
 
-    // const errors = validationResult(req);
-    // console.log("Login validation error: ", errors);
+    const client = new OAuth2Client(audience);
 
-    // if (!errors.isEmpty()) {
-    //   return res.send({ success: false, error: errors.array() });
-    // }
+    async function verify() {
+      const ticket = await client.verifyIdToken({
+        idToken: token,
+        audience: audience,
+      });
 
-    // check if user exists, if not - create new.
+      const payload = ticket.getPayload();
+      // const userid = payload["sub"];
 
-    const user = await User.findOne(
-      { email: req.body.email },
-      (err, foundUser) => {
-        if (err) {
-          console.error("Error on finding user: ", err);
-        } else {
-          if (foundUser) {
-            // User already exists, return original document
-            return foundUser;
-          } else {
-            // User does not exist, create a new one
-            let newUser = new User({
-              ...req.body,
-            });
+      let verification = false;
 
-            // Save the new user to database and return it
-            newUser.save((err) => {
-              if (err) {
-                console.error("Error on newUser save: ", err);
-              } else {
-                return newUser;
-              }
-            });
-          }
-        }
+      if (
+        payload.aud === audience &&
+        payload.iss === "https://accounts.google.com"
+      ) {
+        console.log("validation checks successful !!!");
+        verification = true;
       }
-    );
-    console.log("User from login fn in userController: ", user);
 
-    const token = jwt.sign({ id: user._id }, "extraJWTstring", token);
+      return verification ? payload : verification;
+    }
+    const userObj = await verify();
 
-    res.cookie("user", token);
+    if (userObj) {
+      let user;
 
-    res.send({ success: true, user: user });
+      const currentUser = await User.findOne({ email: userObj.email });
+
+      if (currentUser) {
+        user = currentUser;
+      } else {
+        const newUser = new User({
+          email: userObj.email,
+          firstName: userObj.given_name,
+          lastName: userObj.family_name,
+          picture: userObj.picture,
+        });
+
+        await newUser.save();
+        user = newUser;
+      }
+
+      res.send({ success: true, user });
+    } else {
+      res.send({
+        success: false,
+        error: "JWT could not be verified",
+      });
+    }
   } catch (error) {
     console.log("register error", error.message);
 
