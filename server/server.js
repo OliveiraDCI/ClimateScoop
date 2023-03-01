@@ -1,13 +1,11 @@
-const express = require("express");
 require("dotenv").config();
+const express = require("express");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
-const cors = require("cors");
-const jwt = require("jsonwebtoken");
 const db = require("./config/db");
 db();
-const passport = require("passport");
 
 const app = express();
 
@@ -22,8 +20,18 @@ app.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "'unsafe-eval'"],
-      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+      scriptSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "https://accounts.google.com/gsi/client",
+      ],
+      styleSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "https://accounts.google.com/gsi/style",
+      ],
+      frameSrc: ["'self'", "https://accounts.google.com/gsi/"],
+      connectSrc: ["'self'", "https://accounts.google.com/gsi/"],
     },
   })
 );
