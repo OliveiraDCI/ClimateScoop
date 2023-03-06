@@ -59,7 +59,19 @@ module.exports.login = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log("register error", error.message);
+    console.log("userController login error: ", error.message);
+
+    res.send({ success: false, error: error.message });
+  }
+};
+
+module.exports.articles = async (req, res) => {
+  try {
+    console.log("userController articles runs: ", error.message);
+
+    res.send({ success: true });
+  } catch (error) {
+    console.log("userController articles error: ", error.message);
 
     res.send({ success: false, error: error.message });
   }
