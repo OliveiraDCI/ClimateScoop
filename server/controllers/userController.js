@@ -30,6 +30,7 @@ module.exports.login = async (req, res) => {
 
       return verification ? payload : verification;
     }
+
     const userObj = await verify();
 
     if (userObj) {
@@ -59,7 +60,7 @@ module.exports.login = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log("register error", error.message);
+    console.log("userController login error: ", error.message);
 
     res.send({ success: false, error: error.message });
   }

@@ -48,6 +48,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(cors());
 app.use("/api/user", require("./routes/userRoutes"));
+app.use("/api/article", require("./routes/articleRoutes"));
 
 const port = process.env.PORT || 4001;
 
