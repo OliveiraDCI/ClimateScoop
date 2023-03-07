@@ -47,6 +47,7 @@ app.use(helmet.noSniff()); // sets the X-Content-Type-Options header to nosniff 
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors());
+
 app.use("/api/user", require("./routes/userRoutes"));
 app.use("/api/article", require("./routes/articleRoutes"));
 
