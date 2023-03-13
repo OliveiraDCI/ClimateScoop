@@ -1,8 +1,11 @@
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Context } from "../context/ContextProvider";
 
-function App() {
-  const [user, setUser] = useState(null);
+function GoogleButton() {
+  const navigate = useNavigate();
+  const { user, setUser } = useContext(Context);
 
   useEffect(() => {
     /* global google */
@@ -17,7 +20,7 @@ function App() {
       theme: "outline",
       size: "medium",
     });
-  });
+  }, [user]);
 
   async function handleResponse(response) {
     const token = response.credential;
@@ -33,12 +36,13 @@ function App() {
     setUser(null);
     document.getElementById("signIn").hidden = false;
     google.accounts.id.disableAutoSelect();
+    navigate("/");
   }
 
   return (
     <>
-      <h1>ClimateScoop</h1>
       <div
+        tabIndex="0"
         id="signIn"
         style={{
           width: "fit-content",
@@ -48,6 +52,7 @@ function App() {
 
       {user && (
         <div
+          className="profile-img"
           style={{
             width: "100%",
             margin: "0 auto",
@@ -56,27 +61,28 @@ function App() {
           }}
         >
           <img
-            src={user.picture}
-            alt="user"
-            width={"34px"}
+            tabIndex="0"
+            src={user?.picture}
+            alt="user image"
+            width={"38px"}
             height={"auto"}
             style={{ borderRadius: "50%" }}
-          ></img>
-          <h4>{user.name}</h4>
+          />
+
+          <button
+            className="logout-btn"
+            onClick={handleSignOut}
+            style={{
+              width: "38px",
+              height: "38px",
+            }}
+          >
+            logout
+          </button>
         </div>
-      )}
-      {user && (
-        <button
-          onClick={handleSignOut}
-          style={{
-            width: "100%",
-          }}
-        >
-          Sign Out
-        </button>
       )}
     </>
   );
 }
 
-export default App;
+export default GoogleButton;
