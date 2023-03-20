@@ -4,6 +4,8 @@ const { Schema } = mongoose;
 
 const articleSchema = new Schema(
   {
+    topic: { type: String },
+    region: { type: String },
     title: { type: String },
     img: { type: String },
     imgDescription: { type: String },

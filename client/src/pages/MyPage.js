@@ -1,5 +1,11 @@
+import Dashboard from "../components/myPage/Dashboard";
+
 function MyPage() {
-  return <div className="myPage">MyPage</div>;
+  return (
+    <>
+      <Dashboard />
+    </>
+  );
 }
 
 export default MyPage;

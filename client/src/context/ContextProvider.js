@@ -18,10 +18,10 @@ function ContextProvider({ children }) {
 
         // console.log("External data ", response.data.results);
 
-        console.log("External data ", response.data);
+        console.log("External data ", response.data.results);
 
         // setExternalData(response.data.results);
-        setExternalData(response.data);
+        setExternalData(response.data.results);
       } catch (err) {
         console.log("Error on setExternalData useEffect: ", err.message);
       }
@@ -47,7 +47,7 @@ function ContextProvider({ children }) {
   if (!externalData) return <div>Loading...</div>;
 
   return (
-    <Context.Provider value={{ user, setUser, userData }}>
+    <Context.Provider value={{ user, setUser, userData, externalData }}>
       {children}
     </Context.Provider>
   );
