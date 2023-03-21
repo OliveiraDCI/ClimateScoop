@@ -16,7 +16,6 @@ module.exports.login = async (req, res) => {
       });
 
       const payload = ticket.getPayload();
-      // const userid = payload["sub"];
 
       let verification = false;
 
@@ -24,7 +23,7 @@ module.exports.login = async (req, res) => {
         payload.aud === audience &&
         payload.iss === "https://accounts.google.com"
       ) {
-        console.log("validation checks successful !!!");
+        console.log("validation checks successful !!!", payload.name);
         verification = true;
       }
 
