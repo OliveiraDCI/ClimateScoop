@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import { Context } from "../../context/ContextProvider";
+import axios from "axios";
 
 function ArticleForm({ setNewArticle, setEditArticle, editArticle }) {
-  const { user } = useContext(Context);
+  const { user, setUpdate } = useContext(Context);
 
   const [formData, setFormData] = useState(
     editArticle
@@ -34,7 +35,42 @@ function ArticleForm({ setNewArticle, setEditArticle, editArticle }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Add logic to submit form data to backend here
+    if (editArticle) {
+      (async () => {
+        try {
+          const response = await axios.put("/api/articles/edit", {
+            formData,
+            id: editArticle._id,
+          });
+
+          console.log("Submiting EDIT form data: ", response.data);
+
+          if (response.data.success) {
+            setUpdate(false);
+            setUpdate(true);
+          }
+        } catch (err) {
+          console.log("Error on form submit: ", err.message);
+        }
+      })();
+    }
+
+    if (!editArticle) {
+      (async () => {
+        try {
+          const response = await axios.post("/api/articles/add", formData);
+
+          console.log("Submiting NEW form data: ", response.data);
+
+          if (response.data.success) {
+            setUpdate(false);
+            setUpdate(true);
+          }
+        } catch (err) {
+          console.log("Error on form submit: ", err.message);
+        }
+      })();
+    }
 
     setNewArticle(false);
     setEditArticle(false);
