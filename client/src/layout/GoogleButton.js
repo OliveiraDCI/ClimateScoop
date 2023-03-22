@@ -8,6 +8,13 @@ function GoogleButton() {
   const { user, setUser } = useContext(Context);
 
   useEffect(() => {
+    const loggedInUser = sessionStorage.getItem("user");
+    if (loggedInUser) {
+      document.getElementById("signIn").hidden = true;
+    }
+  }, []);
+
+  useEffect(() => {
     /* global google */
     google.accounts.id.initialize({
       client_id: process.env.REACT_APP_GOOGLE_ID,
@@ -28,6 +35,11 @@ function GoogleButton() {
 
     if (loginUser.data.success) {
       setUser(loginUser.data.user);
+      sessionStorage.setItem("user", JSON.stringify(loginUser.data.user));
+
+      console.log("token: ", token);
+      console.log("user: ", loginUser.data.user);
+
       document.getElementById("signIn").hidden = true;
     }
   }
@@ -36,6 +48,7 @@ function GoogleButton() {
     setUser(null);
     document.getElementById("signIn").hidden = false;
     google.accounts.id.disableAutoSelect();
+    sessionStorage.removeItem("user");
     navigate("/");
   }
 
