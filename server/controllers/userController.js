@@ -5,6 +5,7 @@ const { OAuth2Client } = require("google-auth-library");
 module.exports.login = async (req, res) => {
   try {
     const token = req.body.token;
+    console.log("token", token);
     const audience = process.env.CLIENT_ID;
 
     const client = new OAuth2Client(audience);
@@ -18,6 +19,7 @@ module.exports.login = async (req, res) => {
       const payload = ticket.getPayload();
 
       let verification = false;
+      console.log("payload", payload);
 
       if (
         payload.aud === audience &&

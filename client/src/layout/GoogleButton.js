@@ -31,6 +31,7 @@ function GoogleButton() {
 
   async function handleResponse(response) {
     const token = response.credential;
+    console.log("token", token);
     const loginUser = await axios.post("/api/user/login", { token: token });
 
     if (loginUser.data.success) {
