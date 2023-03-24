@@ -11,7 +11,7 @@ function HomePage() {
 
 function HeroSection() {
   return (
-    <div class="bg-image">
+    <div className="bg-image">
       <section className="hero-section">
         <h1>Welcome to ClimateScoop</h1>
         <p>
