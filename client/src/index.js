@@ -9,7 +9,7 @@ import App from "./pages/App";
 import Articles from "./pages/Articles";
 import MyPage from "./pages/MyPage";
 import NotFound from "./pages/NotFound";
-
+import Article from "./pages/Article";
 function AppWrapper() {
   const { user } = useContext(Context);
 
@@ -20,6 +20,7 @@ function AppWrapper() {
         <Route path="/" element={<App />} />
         <Route path="/articles" element={<Articles />} />
         <Route path="/myPage" element={user ? <MyPage /> : <NotFound />} />
+        <Route path="/article/:id" element={<Article />} />;
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
