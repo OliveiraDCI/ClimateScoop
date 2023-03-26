@@ -19,131 +19,112 @@
 /* HOME PAGE  */
 /* ========== */
 
-.hero {
-  width: fit-content;
-  margin: 5em auto;
+.bg-image {
+  background-image: url("https://www.theclimategroup.org/sites/default/files/styles/image_with_text_desktop_wide/public/2021-01/shutterstock_1660865671.jpg?h=f2fcf546&itok=t9fzisD_");
+  height: 50vh;
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-div {
-  &.p-5 {
-    padding: 5px;
-  }
-  &.text-center {
-    text-align: center;
-  }
-  &.bg-image {
-    background-image: url("https://www.theclimategroup.org/sites/default/files/styles/image_with_text_desktop_wide/public/2021-01/shutterstock_1660865671.jpg?h=f2fcf546&itok=t9fzisD_");
-    height: 400px;
-    background-size: cover;
-    background-position: center center;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.hero-section {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--white);
+  font-size: 1.3rem;
+  padding: 0.7em;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--black);
+  opacity: 0.4;
+}
+
+.hero-section h1 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-size: 2.2rem;
+}
+
+.hero-section p {
+  margin-bottom: 1em;
+}
+
+.hero-section button {
+  background-color: var(--black);
+  color: var(--white);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5em 1.2em;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.hero-section button:hover {
+  transform: translateY(-0.2rem);
+  box-shadow: 0 0.5rem 1rem var(--tone-shadow);
+}
+
+@media only screen and (min-width: 505px) {
+  .hero-section {
+    padding: 1.3em;
   }
 
-  .bg-image img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+  .hero-section h1 {
+    font-size: 3rem;
+  }
+
+  .hero-section p {
+    margin-bottom: 1.5em;
+    font-size: 1.4rem;
+  }
+
+  .hero-section button {
+    // padding: 0.5em 1em;
+    font-size: 1.2rem;
   }
 }
-.mask {
-  background-color: rgba(0, 0, 0, 0.6);
-  .d-flex {
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    .text-white {
-      color: #fff;
-      font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-    }
-  }
-}
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-  hero {
-    margin: 2em auto;
-  }
-  div {
-    &.p-5 {
-      padding: 3px;
-    }
-    &.bg-image {
-      height: 200px;
-    }
-    .bg-image img {
-      width: 80%;
-    }
-  }
-}
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-  hero {
-    margin: 3em auto;
-  }
-  div {
-    &.p-5 {
-      padding: 4px;
-    }
-    &.bg-image {
-      height: 300px;
-    }
-    .bg-image img {
-      width: 90%;
-    }
-  }
-}
-/* Medium devices (landscape tablets, 768px and up) */
+
 @media only screen and (min-width: 768px) {
-  hero {
-    margin: 4em auto;
+  .bg-image {
+    height: calc(100vh - 70px);
   }
-  div {
-    &.p-5 {
-      padding: 4px;
-    }
-    &.bg-image {
-      height: 350px;
-    }
-    .bg-image img {
-      width: 95%;
-    }
+
+  .hero-section {
+    font-size: 2rem;
+    padding: 4rem;
+  }
+
+  .hero-section h1 {
+    font-size: 5rem;
+  }
+
+  .hero-section p {
+    font-size: 1.5rem;
   }
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-  hero {
-    margin: 4em auto;
-  }
-  div {
-    &.p-5 {
-      padding: 4px;
-    }
-    &.bg-image {
-      height: 350px;
-    }
-    .bg-image img {
-      width: 95%;
-    }
-  }
-}
+/* ====== */
+/* CHARTS */
+/* ====== */
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-  hero {
-    margin: 4em auto;
-  }
-  div {
-    &.p-5 {
-      padding: 4px;
-    }
-    &.bg-image {
-      height: 350px;
-    }
-    .bg-image img {
-      width: 95%;
-    }
-  }
+.chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4em;
+  padding: 0.8em;
 }

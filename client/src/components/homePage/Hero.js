@@ -1,4 +1,8 @@
 import "./hero.scss";
+import { useNavigate } from "react-router-dom";
+import OceanTemperatureChart from "./charts/OceanTemperatureChart";
+import ChartGlobalTemp from "./charts/ChartGlobalTemp";
+import ChartArctic from "./charts/ChartArctic";
 
 function HomePage() {
   return (
@@ -10,15 +14,21 @@ function HomePage() {
 }
 
 function HeroSection() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/articles");
+  };
   return (
     <div className="bg-image">
       <section className="hero-section">
         <h1>Welcome to ClimateScoop</h1>
         <p>
-          Explore new articles about Climate Change & create your owns if you'd
-          like !
+          - Climate Statistics Dashboard <br />
+          - Explore articles from media news <br />- Create your own! (login
+          required)
         </p>
-        <button>Articles</button>
+        <button onClick={handleClick}>Articles</button>
       </section>
     </div>
   );
@@ -27,12 +37,11 @@ function HeroSection() {
 function DashboardSection() {
   return (
     <section className="dashboard-section">
-      <h2>Dashboard</h2>
-      <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-      </ul>
+      <div className="chart">
+        <OceanTemperatureChart />
+        <ChartGlobalTemp />
+        <ChartArctic />
+      </div>
     </section>
   );
 }
