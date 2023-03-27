@@ -2,27 +2,43 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./articles.scss";
 import { Context } from "../../context/ContextProvider";
+import moment from "moment";
 
 function ArticleSection() {
-  const { externalData } = useContext(Context);
+  const { externalData, userData, user } = useContext(Context);
+
+  const allData = user ? [...externalData, ...userData] : externalData;
+
+  allData.sort((a, b) => {
+    const dateA = moment(a.pubDate || a.createdAt);
+    const dateB = moment(b.pubDate || b.createdAt);
+    return dateB.diff(dateA);
+  });
 
   return (
     <div className="article-section">
-      {externalData.map((article, index) => (
+      {allData.map((article, index) => (
         <div className="article" key={index}>
           <img
             src={
               article.image_url
                 ? article.image_url
-                : "https://media.istockphoto.com/id/1361668534/es/foto/el-cambio-clim%C3%A1tico-y-los-j%C3%B3venes-en-el-futuro.jpg?s=612x612&w=0&k=20&c=l7ZWQZwyZtZXEl9_6i3mj4HSTo_JAbXMoutOmcs39Lk="
+                : article.img ||
+                  `https://source.unsplash.com/random/200x200?sig=${index}`
             }
             alt={article.title}
           />
           <div className="article-content">
-            <h2>{article.title}</h2>
-            <p>{article.description}</p>
+            {article.title && <h2>{article.title}</h2>}
+            {article.description && <p>{article.description}</p>}
             <div className="article-links">
-              <Link to={`/article/${article.pubDate}`}>read more</Link>
+              {article.pubDate || article.createdAt ? (
+                <Link to={`/article/${article.pubDate || article.createdAt}`}>
+                  read more
+                </Link>
+              ) : (
+                <p>Article not available</p>
+              )}
             </div>
           </div>
         </div>

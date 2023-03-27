@@ -9,6 +9,7 @@ function SingleArticle() {
   const { id } = useParams();
 
   let article = externalData.find((article) => article.pubDate === id);
+
   if (!article) {
     article = userData.find((article) => article.createdAt === id);
   }
@@ -24,11 +25,17 @@ function SingleArticle() {
   return (
     <article className="single-article">
       <header>
-        <h1>{article.title}</h1>
+        {article.title && <h1>{article.title}</h1>}
         <div className="article-info">
-          <p>Category: {article.category.join(", ")}</p>
-          <p>Country: {article.country.join(", ")}</p>
-          <p>Published: {date}</p>
+          {(article.category || article.topic) && (
+            <p>Category: {article.category || article.topic}</p>
+          )}
+          {(article.country || article.region) && (
+            <p>Country: {article.country || article.region}</p>
+          )}
+          {(date && <p>Published: {date}</p>) || (
+            <p>Published date not available</p>
+          )}
         </div>
       </header>
       <figure>
@@ -36,20 +43,35 @@ function SingleArticle() {
           src={
             article.image_url
               ? article.image_url
-              : `https://source.unsplash.com/random/200x200?sig=${id}`
+              : article.image ||
+                `https://source.unsplash.com/random/200x200?sig=${id}`
           }
-          alt={article.description}
+          alt={article.title || "img"}
         />
       </figure>
       <div className="article-content">
-        <p>{article.content}</p>
+        {article.content && <p>{article.content}</p>}
+        {article.article && <p>{article.article}</p>}
+        {!article.content && !article.article && (
+          <p>Article content not available</p>
+        )}
       </div>
       <footer>
         <p>Original Source:</p>
         <ul>
-          <li>
-            <a href={article.link}>{article.link}</a>
-          </li>
+          {article.link && (
+            <li>
+              <a href={article.link}>{article.link}</a>
+            </li>
+          )}
+          {article.references && (
+            <li>
+              <a href={article.references}>{article.references}</a>
+            </li>
+          )}
+          {!article.link && !article.references && (
+            <li>Original source not available</li>
+          )}
         </ul>
       </footer>
     </article>
