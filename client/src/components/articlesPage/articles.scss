@@ -6,7 +6,7 @@
   width: 100%;
   max-width: 1850px;
   margin: 1em auto;
-  color: var(--articlesGray);
+  color: var(--dark-grey);
   position: relative;
   font-size: 0.8rem;
 
@@ -15,7 +15,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    background: var(--white);
+    background: var(--white-green);
     box-shadow: 0px 2px 6px var(--tone-shadow);
     border-radius: 10px;
     width: 100%;
@@ -54,10 +54,10 @@
     }
     a {
       font-size: 1rem;
-      color: var(--articlesGray);
+      color: var(--dark-grey);
       text-decoration: none;
       font-weight: bold;
-      border-bottom: 1px solid var(--articlesGray);
+      border-bottom: 1px solid var(--dark-grey);
       transition: border-color 0.2s;
     }
   }
@@ -108,7 +108,7 @@
       }
 
       a {
-        border-bottom: 2px solid #0077cc;
+        border-bottom: 2px solid var(--dark-grey);
       }
     }
   }
