@@ -15,11 +15,11 @@ function Header() {
         <nav>
           <ul>
             <NavLink className="nav-link" to="/articles">
-              articles
+              Articles
             </NavLink>
             {user && (
               <NavLink className="nav-link" to="/myPage">
-                myPage
+                MyPage
               </NavLink>
             )}
           </ul>

@@ -61,7 +61,7 @@ function SingleArticle() {
         <ul>
           {article.link && (
             <li>
-              <a href={article.link}>{article.link}</a>
+              <a href={article.link}>Click here</a>
             </li>
           )}
           {article.references && (
