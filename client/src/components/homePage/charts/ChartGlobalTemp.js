@@ -48,18 +48,24 @@ const ChartGlobalTemp = () => {
         height: "25vh",
         minHeight: "170px",
         width: "100%",
-        background: "var(--light-tone)",
+        background:
+          "linear-gradient(to top, rgba(164, 195, 178, 0.9), rgba(107, 144, 128, 0.4))",
+        borderRadius: "15px",
         fontSize: "13px",
+        boxShadow:
+          "0 0 0 rgba(164, 195, 178, 0.5), 0 0 0 rgba(164, 195, 178, 0.5), 0px -10px 10px rgba(0, 0, 0, 0.5)",
       }}
     >
-      <h2 style={{ textAlign: "center", marginTop: "2em", color: "#fff" }}>
+      <h2
+        style={{ textAlign: "center", marginTop: "1em", color: "var(--white)" }}
+      >
         Global Temperature Anomalies ( °C )
       </h2>
       <ResponsiveLine
         data={dataByYear}
         theme={{
-          textColor: "#fff",
-          background: "var(--light-tone)",
+          textColor: "var(--white)",
+          // background: "var(--dark-green)",
         }}
         key="global-temperature-chart"
         margin={{ top: 25, right: 15, bottom: 50, left: 40 }}
@@ -97,7 +103,7 @@ const ChartGlobalTemp = () => {
         pointColor={{ theme: "background" }}
         pointBorderWidth={2}
         pointBorderColor={{ from: "serieColor" }}
-        useMesh={true}
+        useMesh={false}
         legends={[]}
       />
     </div>

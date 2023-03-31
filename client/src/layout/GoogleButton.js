@@ -56,6 +56,7 @@ function GoogleButton() {
   return (
     <>
       <div
+        className="google-button"
         tabIndex="0"
         id="signIn"
         style={{
@@ -68,7 +69,7 @@ function GoogleButton() {
         <div
           className="profile-img"
           style={{
-            width: "100%",
+            width: "36px",
             margin: "0 auto",
             display: "grid",
             placeItems: "center",
@@ -78,7 +79,7 @@ function GoogleButton() {
             tabIndex="0"
             src={user?.picture}
             alt="user image"
-            width={"38px"}
+            width={"100%"}
             height={"auto"}
             style={{ borderRadius: "50%" }}
           />
@@ -87,8 +88,8 @@ function GoogleButton() {
             className="logout-btn"
             onClick={handleSignOut}
             style={{
-              width: "38px",
-              height: "38px",
+              width: "103%",
+              height: "103%",
             }}
           >
             logout

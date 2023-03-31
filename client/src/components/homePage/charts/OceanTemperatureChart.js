@@ -38,35 +38,31 @@ function OceanTemperatureChart() {
   return (
     <div
       style={{
+        // height: "fit-content",
         height: "25vh",
         minHeight: "180px",
         width: "100%",
-        background: "var(--light-tone)",
+        background:
+          "linear-gradient(to top, rgba(164, 195, 178, 0.9), rgba(107, 144, 128, 0.4))",
+        borderRadius: "15px 15px 0 0",
         fontSize: "14px",
+        boxShadow:
+          "0 0 0 rgba(164, 195, 178, 0.5), 0 0 0 rgba(164, 195, 178, 0.5), 0px -10px 10px rgba(0, 0, 0, 0.5)",
       }}
     >
-      <h2 style={{ textAlign: "center", marginTop: "1em", color: "#fff" }}>
+      <h2
+        style={{
+          textAlign: "center",
+          marginTop: "1em",
+          color: "var(--white)",
+        }}
+      >
         Ocean Temperature over time ( °C )
       </h2>
 
       <ResponsiveLine
         data={data}
         key="ocean-temperature-chart"
-        tooltip={({ point }) => {
-          if (point.data.y === null) {
-            return (
-              <div style={{ background: "#fff", padding: "5px 10px" }}>
-                No data available for {point.data.x}
-              </div>
-            );
-          }
-
-          return (
-            <div style={{ background: "#fff", padding: "5px 10px" }}>
-              {point.data.x}: {point.data.y}
-            </div>
-          );
-        }}
         margin={{ top: 5, right: 15, bottom: 35, left: 40 }}
         xScale={{ type: "point" }}
         yScale={{
@@ -90,36 +86,16 @@ function OceanTemperatureChart() {
           style: {
             textTransform: "uppercase",
             fontWeight: "bold",
-            fill: "#fff",
-          },
-        }}
-        axisLeft={{
-          orient: "left",
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 0,
-          // legend: "Temperature",
-          legendOffset: -42,
-          legendPosition: "middle",
-          style: {
-            textTransform: "uppercase",
-            fontWeight: "bold",
-            fill: "#fff",
+            fill: "var(--white)",
           },
         }}
         enableGridX={false}
         enableGridY={false}
         colors={{ scheme: "nivo" }}
-        lineWidth={1}
         pointSize={2}
-        pointBorderWidth={2}
-        pointBorderColor={{ from: "serieColor" }}
-        pointLabel="y"
-        pointLabelYOffset={-12}
-        useMesh={true}
         theme={{
-          background: "var(--light-tone)",
-          textColor: "#fff",
+          // background: "var(--dark-green)",
+          textColor: "var(--white)",
           axis: {
             domain: {
               line: {
@@ -134,29 +110,13 @@ function OceanTemperatureChart() {
               },
               text: {
                 fontSize: "12px",
-                fontWeight: "bold",
                 textTransform: "uppercase",
-                fill: "#fff",
+                fill: "var(--white)",
               },
-            },
-            legend: {
-              text: {
-                fontSize: "14px",
-                fontWeight: "bold",
-                textTransform: "uppercase",
-                fill: "#fff",
-              },
-            },
-          },
-          legends: {
-            text: {
-              fontSize: "12px",
-              fontWeight: "bold",
-              textTransform: "uppercase",
-              fill: "#fff",
             },
           },
         }}
+        useMesh={false}
       />
     </div>
   );

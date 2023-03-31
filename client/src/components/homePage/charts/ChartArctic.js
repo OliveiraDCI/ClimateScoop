@@ -35,21 +35,29 @@ const ChartArctic = () => {
     <div
       style={{
         height: "25vh",
+        // height: "fit-content",
         minHeight: "150px",
         width: "100%",
-        background: "var(--light-tone)",
+        background: "var(--dark-green)",
         fontSize: "13px",
         marginBottom: "5em",
+        background:
+          "linear-gradient(to top, rgba(164, 195, 178, 0.9), rgba(107, 144, 128, 0.4))",
+        borderRadius: "15px",
+        boxShadow:
+          "0 0 0 rgba(164, 195, 178, 0.5), 0 0 0 rgba(164, 195, 178, 0.5), 0px -10px 10px rgba(0, 0, 0, 0.5)",
       }}
     >
-      <h2 style={{ textAlign: "center", marginTop: "2em", color: "#fff" }}>
+      <h2
+        style={{ textAlign: "center", marginTop: "1em", color: "var(--white)" }}
+      >
         Melted Polar Ice Caps ( million km² )
       </h2>
       <ResponsiveLine
         data={[{ id: "Extent", data: formattedData }]}
         theme={{
-          textColor: "#fff",
-          background: "var(--light-tone)",
+          textColor: "var(--white)",
+          // background: "var(--dark-green)",
         }}
         key="arctic-temperature-chart"
         margin={{ top: 15, right: 15, bottom: 40, left: 40 }}
@@ -65,10 +73,8 @@ const ChartArctic = () => {
         axisRight={null}
         axisBottom={{
           tickValues: [1980, 1990, 2000, 2010, 2020],
-          // legend: "Year",
           legendOffset: 36,
           tickPadding: 8,
-
           tickRotation: -45,
           format: (value) => `${value}`,
           style: { fontSize: "14px", fill: "white" },
@@ -78,19 +84,17 @@ const ChartArctic = () => {
           legendOffset: -50,
           tickSize: 5,
           tickPadding: 8,
-          // Adjust styles
-          style: { fontSize: "18px", fill: "white" },
         }}
         colors={{ scheme: "set1" }}
-        lineWidth={3}
+        // lineWidth={3}
         pointSize={5}
         pointColor={{ theme: "background" }}
         pointBorderWidth={1}
         pointBorderColor={{ from: "serieColor" }}
         enableArea={true}
         areaOpacity={0.2}
-        enableCrosshair={false}
-        useMesh={true}
+        // enableCrosshair={false}
+        useMesh={false}
       />
     </div>
   );

@@ -32,10 +32,8 @@ function ArticleSection() {
             {article.title && <h2>{article.title}</h2>}
             {article.description && <p>{article.description}</p>}
             <div className="article-links">
-              {article.pubDate || article.createdAt ? (
-                <Link to={`/article/${article.pubDate || article.createdAt}`}>
-                  read more
-                </Link>
+              {article.title ? (
+                <Link to={`/article/${article.title}`}>read more</Link>
               ) : (
                 <p>Article not available</p>
               )}
