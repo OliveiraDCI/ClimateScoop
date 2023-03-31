@@ -4,6 +4,7 @@
 
 .dashboard {
   padding: 1em;
+  margin: 1em;
 
   .dashboard-overview {
     display: flex;
@@ -42,6 +43,7 @@
     font-size: 0.8rem;
 
     th {
+      color: var(--dark-grey);
       text-align: center;
       font-weight: normal;
       font-size: 1rem;
@@ -72,6 +74,14 @@
       &:nth-child(4) {
         width: 15%;
         text-align: center;
+        button {
+          font-size: 1rem;
+          border-radius: 3px;
+          border: none;
+          padding: 0.5em 0.9em;
+          color: var(--white);
+          background-color: var(--pastel-olive);
+        }
       }
     }
 
@@ -81,17 +91,18 @@
           padding: 0.5em 0;
           border-bottom: 1px solid var(--dark-grey);
           font-size: 1rem;
+          color: var(--dark-grey);
           &:first-child {
             font-weight: bold;
-            color: var(--dark-grey);
           }
           &:last-child {
             button {
-              padding: 0.5em 1em;
+              border-radius: 3px;
+              padding: 0.5em 0.4em;
+              margin-left: 0.3em;
               border: none;
-              border-radius: 4px;
-              background-color: var(--dark-green);
-              color: #fff;
+              background-color: var(--pastel-eggshell);
+              color: var(--black);
               font-size: 1rem;
               cursor: pointer;
               &:hover {
@@ -101,7 +112,7 @@
           }
         }
         &:hover {
-          background-color: #f0f0f0;
+          background-color: var(--white);
         }
       }
     }
@@ -112,17 +123,23 @@
     margin: 1rem auto 0;
     padding: 0.5em 1em;
     font-size: 1rem;
-    background-color: var(--dark-green);
-    color: #fff;
+    background-color: var(--white-green);
+    color: var(--black);
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
 }
 
+.dashboard-new-article-button:hover {
+  transform: translateY(-0.2rem);
+  box-shadow: 0 0.5rem 1rem var(--tone-shadow);
+}
+
 .new-article-form {
   padding: 1em;
-
+  color: var(--dark-grey);
+  font-weight: bold;
   .form-group {
     margin-bottom: 1em;
 
@@ -138,7 +155,7 @@
       width: 100%;
       font-size: 1rem;
       padding: 0.5em;
-      border: 1px solid #ccc;
+      border: 1px solid var(--light-grey);
       border-radius: 5px;
 
       &:focus {
@@ -158,12 +175,17 @@
   button[type="submit"] {
     display: block;
     margin: 1em auto 0;
-    padding: 0.5em 1em;
-    font-size: 1rem;
+    padding: 0.6em 2em;
+    font-size: 1.1rem;
     background-color: var(--dark-green);
-    color: #fff;
+    color: var(--white);
     border: none;
     border-radius: 5px;
     cursor: pointer;
+  }
+
+  button[type="submit"]:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0.5rem 1rem var(--tone-shadow);
   }
 }
