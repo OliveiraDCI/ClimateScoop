@@ -8,10 +8,10 @@ function SingleArticle() {
   const { externalData, userData } = useContext(Context);
   const { id } = useParams();
 
-  let article = externalData.find((article) => article.pubDate === id);
+  let article = externalData.find((article) => article.title === id);
 
   if (!article) {
-    article = userData.find((article) => article.createdAt === id);
+    article = userData.find((article) => article.title === id);
   }
 
   if (!article) {

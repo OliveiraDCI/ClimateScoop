@@ -22,11 +22,13 @@ function HeroSection() {
   return (
     <div className="bg-image">
       <section className="hero-section">
-        <h1>Welcome to ClimateScoop</h1>
-        <p>
-          - Climate Statistics Dashboard <br />
-          - Explore articles from media news <br />- Create your own! (login
-          required)
+        <h1>ClimateScoop</h1>
+        <p className="hero-description">
+          ∙ Climate Statistics Dashboard <br />
+          ∙ Fresh articles from last 24hrs!
+          <br />
+          {/* ∙ Explore articles from media news <br /> */}∙ Create your own!
+          (login required)
         </p>
         <button onClick={handleClick}>Articles</button>
       </section>

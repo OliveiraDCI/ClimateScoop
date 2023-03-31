@@ -11,17 +11,19 @@
   border-radius: 10px;
 
   .search-box {
-    border: 1px solid rgba(255, 249, 249, 0.46);
+    border: 1px solid rgba(49, 39, 39, 0.2);
     position: relative;
     display: flex;
     align-items: center;
     width: 100%;
     max-width: 500px;
-    height: 50px;
+    height: 38px;
     border-radius: 10px;
     overflow: hidden;
     background-color: rgba(107, 144, 128, 0.219);
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.15);
+    // box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.15);
+
+    margin: 0.2em auto 0.5em;
   }
 
   input[type="text"] {
@@ -35,23 +37,42 @@
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 1px;
+    box-shadow: inset 2px 2px 5px var(--dark-green);
+  }
+  input[type="text"]::placeholder {
+    color: var(--light-green);
   }
 
   .lupe {
+    color: var(--white);
     position: absolute;
-    right: 0;
+    right: 5%;
     top: 0;
-    width: 50px;
-    height: 50px;
+    width: 10%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.2);
+    // background-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--dark-green);
+    box-shadow: -2px 0 3px var(--dark-green);
+
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
+    scale: 2.2;
   }
 
   .lupe:hover {
+    color: var(--dark-green);
     background-color: rgba(255, 255, 255, 0.3);
+    transition: none;
+  }
+}
+
+@media (min-width: 500px) {
+  .search-container {
+    .search-box {
+      margin: 2em auto;
+    }
   }
 }
