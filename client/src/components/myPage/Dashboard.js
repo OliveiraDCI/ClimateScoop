@@ -32,7 +32,7 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-      <div className="dashboard-overview">
+      {/* <div className="dashboard-overview">
         <p className="dashboard-articles-count">
           {userData ? userData.length : "0"} articles
         </p>
@@ -44,7 +44,7 @@ function Dashboard() {
         <p className="dashboard-sentiment-score">
           Sentiment score: {sentimentScore ? sentimentScore : "0"}
         </p>
-      </div>
+      </div> */}
       <table className="dashboard-table">
         <thead>
           <tr>
