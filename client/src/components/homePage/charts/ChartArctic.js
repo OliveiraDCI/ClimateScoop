@@ -35,7 +35,6 @@ const ChartArctic = () => {
     <div
       style={{
         height: "25vh",
-        // height: "fit-content",
         minHeight: "150px",
         width: "100%",
         background: "var(--dark-green)",
@@ -57,7 +56,6 @@ const ChartArctic = () => {
         data={[{ id: "Extent", data: formattedData }]}
         theme={{
           textColor: "var(--white)",
-          // background: "var(--dark-green)",
         }}
         key="arctic-temperature-chart"
         margin={{ top: 15, right: 15, bottom: 40, left: 40 }}
@@ -85,15 +83,14 @@ const ChartArctic = () => {
           tickSize: 5,
           tickPadding: 8,
         }}
-        colors={{ scheme: "set1" }}
-        // lineWidth={3}
+        colors={["#008080", "#F0E68C"]}
+        // colors={{ scheme: "set1" }}
         pointSize={5}
         pointColor={{ theme: "background" }}
         pointBorderWidth={1}
         pointBorderColor={{ from: "serieColor" }}
         enableArea={true}
         areaOpacity={0.2}
-        // enableCrosshair={false}
         useMesh={false}
       />
     </div>

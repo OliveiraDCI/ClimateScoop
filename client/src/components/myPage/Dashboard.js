@@ -4,8 +4,6 @@ import axios from "axios";
 import ArticleForm from "./ArticleForm";
 import "./myPage.scss";
 
-const sentimentScore = 0.8;
-
 function Dashboard() {
   const { userData, setUserData } = useContext(Context);
   const [newArticle, setNewArticle] = useState(null);
@@ -19,7 +17,6 @@ function Dashboard() {
   }, [newArticle, editArticle]);
 
   const handleDelete = async (id) => {
-    console.log("id ==> ", id);
     try {
       const response = await axios.delete(`/api/articles/delete/${id}`);
 
@@ -30,34 +27,85 @@ function Dashboard() {
     }
   };
 
+  // return (
+  //   <div className="dashboard">
+  //     <table className="dashboard-table">
+  //       <thead>
+  //         <tr>
+  //           <th>Title</th>
+  //           <th>Likes</th>
+  //           <th>Edit</th>
+  //           <th>Delete</th>
+  //         </tr>
+  //       </thead>
+  //       {!userData ? (
+  //         <tbody>
+  //           <tr>
+  //             <td colSpan="4">There are no articles to display.</td>
+  //           </tr>
+  //         </tbody>
+  //       ) : (
+  //         <tbody>
+  //           {userData &&
+  //             userData.map((article) => (
+  //               <tr key={article._id}>
+  //                 <td>{article.title}</td>
+  //                 <td>{article.likes.length}</td>
+  //                 <td>
+  //                   <button
+  //                     className="dashboard-edit-button"
+  //                     onClick={() => setEditArticle(article)}
+  //                   >
+  //                     Edit
+  //                   </button>
+  //                 </td>
+  //                 <td>
+  //                   <button
+  //                     className="dashboard-delete-button"
+  //                     onClick={() => handleDelete(article._id)}
+  //                   >
+  //                     Delete
+  //                   </button>
+  //                 </td>
+  //               </tr>
+  //             ))}
+  //         </tbody>
+  //       )}
+  //     </table>
+  //     <button
+  //       className="dashboard-new-article-button"
+  //       onClick={() => setNewArticle(true)}
+  //       ref={btnRef}
+  //     >
+  //       + New Article
+  //     </button>
+
+  //     {(newArticle || editArticle) && (
+  //       <ArticleForm
+  //         setNewArticle={setNewArticle}
+  //         setEditArticle={setEditArticle}
+  //         editArticle={editArticle}
+  //       />
+  //     )}
+  //   </div>
+  // );
   return (
-    <div className="dashboard">
-      {/* <div className="dashboard-overview">
-        <p className="dashboard-articles-count">
-          {userData ? userData.length : "0"} articles
-        </p>
-        <p className="dashboard-likes-count">
-          {userData
-            ? userData.reduce((acc, el) => acc + el.likes.length, 0) + " likes"
-            : "0 likes"}
-        </p>
-        <p className="dashboard-sentiment-score">
-          Sentiment score: {sentimentScore ? sentimentScore : "0"}
-        </p>
-      </div> */}
+    <div className="dashboard dashboard-container">
       <table className="dashboard-table">
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Likes</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th className="dashboard-table-header">Title</th>
+            <th className="dashboard-table-header">Likes</th>
+            <th className="dashboard-table-header">Edit</th>
+            <th className="dashboard-table-header">Delete</th>
           </tr>
         </thead>
         {!userData ? (
           <tbody>
             <tr>
-              <td colSpan="4">There are no articles to display.</td>
+              <td colSpan="4" className="dashboard-table-cell">
+                There are no articles to display.
+              </td>
             </tr>
           </tbody>
         ) : (
@@ -65,9 +113,11 @@ function Dashboard() {
             {userData &&
               userData.map((article) => (
                 <tr key={article._id}>
-                  <td>{article.title}</td>
-                  <td>{article.likes.length}</td>
-                  <td>
+                  <td className="dashboard-table-cell">{article.title}</td>
+                  <td className="dashboard-table-cell">
+                    {article.likes.length}
+                  </td>
+                  <td className="dashboard-table-cell">
                     <button
                       className="dashboard-edit-button"
                       onClick={() => setEditArticle(article)}
@@ -75,7 +125,7 @@ function Dashboard() {
                       Edit
                     </button>
                   </td>
-                  <td>
+                  <td className="dashboard-table-cell">
                     <button
                       className="dashboard-delete-button"
                       onClick={() => handleDelete(article._id)}

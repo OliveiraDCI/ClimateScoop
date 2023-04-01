@@ -38,7 +38,6 @@ function OceanTemperatureChart() {
   return (
     <div
       style={{
-        // height: "fit-content",
         height: "25vh",
         minHeight: "180px",
         width: "100%",
@@ -91,10 +90,10 @@ function OceanTemperatureChart() {
         }}
         enableGridX={false}
         enableGridY={false}
-        colors={{ scheme: "nivo" }}
+        colors={"#00918E"}
+        // colors={{ scheme: "nivo" }}
         pointSize={2}
         theme={{
-          // background: "var(--dark-green)",
           textColor: "var(--white)",
           axis: {
             domain: {

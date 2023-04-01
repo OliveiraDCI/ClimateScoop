@@ -65,7 +65,6 @@ const ChartGlobalTemp = () => {
         data={dataByYear}
         theme={{
           textColor: "var(--white)",
-          // background: "var(--dark-green)",
         }}
         key="global-temperature-chart"
         margin={{ top: 25, right: 15, bottom: 50, left: 40 }}
@@ -97,7 +96,7 @@ const ChartGlobalTemp = () => {
         enablePoints={false}
         enableGridX={false}
         enableGridY={true}
-        colors={["#FF5A5F"]}
+        colors={["#B83C44"]}
         lineWidth={1}
         pointSize={2}
         pointColor={{ theme: "background" }}
