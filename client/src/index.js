@@ -5,11 +5,12 @@ import "./styles/reset.css";
 import "./styles/main.scss";
 import ContextProvider, { Context } from "./context/ContextProvider";
 import Header from "./layout/Header";
-import App from "./pages/App";
-import Articles from "./pages/Articles";
+import HomePage from "./pages/HomePage";
+import ArticlesPage from "./pages/ArticlesPage";
+import ArticlePage from "./pages/ArticlePage";
 import MyPage from "./pages/MyPage";
 import NotFound from "./pages/NotFound";
-import Article from "./pages/Article";
+
 function AppWrapper() {
   const { user } = useContext(Context);
 
@@ -17,10 +18,10 @@ function AppWrapper() {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/articles" element={<Articles />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/articles" element={<ArticlesPage />} />
         <Route path="/myPage" element={user ? <MyPage /> : <NotFound />} />
-        <Route path="/article/:id" element={<Article />} />;
+        <Route path="/article/:id" element={<ArticlePage />} />;
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

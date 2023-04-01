@@ -1,11 +1,7 @@
 import Dashboard from "../components/myPage/Dashboard";
 
 function MyPage() {
-  return (
-    <>
-      <Dashboard />
-    </>
-  );
+  return <Dashboard />;
 }
 
 export default MyPage;

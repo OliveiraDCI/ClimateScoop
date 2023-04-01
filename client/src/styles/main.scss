@@ -17,10 +17,10 @@
   --borderRed: 2px solid red;
   --easing: cubic-bezier(0.645, 0.045, 0.355, 1);
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-  --pastel-orange: #A5A58D;
-  --pastel-eggshell: #FFE8D6;
-  --pastel-: #CB997E;
-  --pastel-olive: #A5A58D;
+  --pastel-orange: #a5a58d;
+  --pastel-eggshell: #ffe8d6;
+  --pastel: #cb997e;
+  --pastel-olive: #a5a58d;
   --dark-green: rgb(107, 144, 128);
   --lighter-green: rgb(164, 195, 178);
   --light-green: #cce3de;
@@ -49,7 +49,6 @@ html {
     background-color: var(--light-green);
     color: var(--white);
     font-family: "DM Mono", monospace;
-    // font: normal 1.4rem/1.5 "Roboto", sans-serif;
     &::-webkit-scrollbar {
       display: none;
     }

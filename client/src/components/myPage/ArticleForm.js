@@ -77,6 +77,77 @@ function ArticleForm({ setNewArticle, setEditArticle, editArticle }) {
   };
 
   return (
+    // <form onSubmit={handleSubmit} className="new-article-form">
+    //   <div className="form-group">
+    //     <label htmlFor="topic">Topic</label>
+    //     <input
+    //       type="text"
+    //       name="topic"
+    //       id="topic"
+    //       value={formData.topic}
+    //       onChange={(e) => handleInputChange(e)}
+    //     />
+    //   </div>
+    //   <div className="form-group">
+    //     <label htmlFor="region">Region</label>
+    //     <input
+    //       type="text"
+    //       name="region"
+    //       id="region"
+    //       value={formData.region}
+    //       onChange={(e) => handleInputChange(e)}
+    //     />
+    //   </div>
+    //   <div className="form-group">
+    //     <label htmlFor="title">Title</label>
+    //     <input
+    //       type="text"
+    //       name="title"
+    //       id="title"
+    //       value={formData.title}
+    //       onChange={(e) => handleInputChange(e)}
+    //     />
+    //   </div>
+    //   <div className="form-group">
+    //     <label htmlFor="img">Upload Image</label>
+    //     <input
+    //       type="file"
+    //       name="img"
+    //       id="img"
+    //       accept="image/*"
+    //       onChange={(e) => handleInputChange(e)}
+    //     />
+    //   </div>
+    //   <div className="form-group">
+    //     <label htmlFor="imgDescription">Image Description</label>
+    //     <textarea
+    //       name="imgDescription"
+    //       id="imgDescription"
+    //       value={formData.imgDescription}
+    //       onChange={(e) => handleInputChange(e)}
+    //     ></textarea>
+    //   </div>
+    //   <div className="form-group">
+    //     <label htmlFor="article">Article Text</label>
+    //     <textarea
+    //       name="article"
+    //       id="article"
+    //       value={formData.article}
+    //       onChange={(e) => handleInputChange(e)}
+    //     ></textarea>
+    //   </div>
+    //   <div className="form-group">
+    //     <label htmlFor="references">References</label>
+    //     <textarea
+    //       name="references"
+    //       id="references"
+    //       value={formData.references}
+    //       onChange={(e) => handleInputChange(e)}
+    //     ></textarea>
+    //   </div>
+    //   <button type="submit">Save</button>
+    // </form>
+
     <form onSubmit={handleSubmit} className="new-article-form">
       <div className="form-group">
         <label htmlFor="topic">Topic</label>
@@ -86,6 +157,7 @@ function ArticleForm({ setNewArticle, setEditArticle, editArticle }) {
           id="topic"
           value={formData.topic}
           onChange={(e) => handleInputChange(e)}
+          className="form-control"
         />
       </div>
       <div className="form-group">
@@ -96,6 +168,7 @@ function ArticleForm({ setNewArticle, setEditArticle, editArticle }) {
           id="region"
           value={formData.region}
           onChange={(e) => handleInputChange(e)}
+          className="form-control"
         />
       </div>
       <div className="form-group">
@@ -106,6 +179,7 @@ function ArticleForm({ setNewArticle, setEditArticle, editArticle }) {
           id="title"
           value={formData.title}
           onChange={(e) => handleInputChange(e)}
+          className="form-control"
         />
       </div>
       <div className="form-group">
@@ -116,6 +190,7 @@ function ArticleForm({ setNewArticle, setEditArticle, editArticle }) {
           id="img"
           accept="image/*"
           onChange={(e) => handleInputChange(e)}
+          className="form-control"
         />
       </div>
       <div className="form-group">
@@ -125,6 +200,7 @@ function ArticleForm({ setNewArticle, setEditArticle, editArticle }) {
           id="imgDescription"
           value={formData.imgDescription}
           onChange={(e) => handleInputChange(e)}
+          className="form-control"
         ></textarea>
       </div>
       <div className="form-group">
@@ -134,6 +210,7 @@ function ArticleForm({ setNewArticle, setEditArticle, editArticle }) {
           id="article"
           value={formData.article}
           onChange={(e) => handleInputChange(e)}
+          className="form-control"
         ></textarea>
       </div>
       <div className="form-group">
@@ -143,9 +220,12 @@ function ArticleForm({ setNewArticle, setEditArticle, editArticle }) {
           id="references"
           value={formData.references}
           onChange={(e) => handleInputChange(e)}
+          className="form-control"
         ></textarea>
       </div>
-      <button type="submit">Save</button>
+      <button type="submit" className="btn btn-primary">
+        Save
+      </button>
     </form>
   );
 }

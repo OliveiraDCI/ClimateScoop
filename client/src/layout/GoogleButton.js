@@ -50,7 +50,7 @@ function GoogleButton() {
     document.getElementById("signIn").hidden = false;
     google.accounts.id.disableAutoSelect();
     sessionStorage.removeItem("user");
-    navigate("/");
+    if (window.location.pathname !== "/articles") navigate("/");
   }
 
   return (
