@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# ClimateScoop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ClimateScoop is an easy-to-use web app designed to provide high-quality information on climate change. Our goal is to help users stay informed about the topic on a daily basis and contribute their own ideas and perspectives.
 
-## Available Scripts
+<br />
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Introduction
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Welcome to ClimateScoop! This web app was created by Alan, Danica, and Rafael as our final project for the Full Stack Web Development course at DCI Digital Career Institute. Stay tuned for updates on when our app will be available for public use. In the meantime, feel free to check out our demo video on Youtube, and our presentation slides on Canva to learn more about the project - links are provided bellow.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br />
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Demo & Presentation
 
-### `npm run build`
+- While our project is not yet live, you can watch a demo on YouTube by clicking [here](https://www.youtube.com/watch?v=wblm7sZ4vXg) to see ClimateScoop in action!
+- You can also view our presentation slides on Canva [here](https://www.canva.com/design/DAFefkGRilE/KOvS9F8eLmYrBKVlu45erQ/view?utm_content=DAFefkGRilE&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink).
+- Stay tuned for updates on when our app will be available for public use.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<div style="text-align: center">
+  <a href="https://www.youtube.com/watch?v=wblm7sZ4vXg"><img src="./climatescoop-demo.gif" alt="ClimateScoop Demo"></a>
+</div>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+ClimateScoop has three awesome features:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Visualization Charts**: Our home page displays charts that visually represent how climate change is affecting the world.
+- **External Articles**: Our app gathers the latest climate change articles from around the web, in one place.
+- **Contribute**: We've made it easy for anyone to contribute their own ideas on climate change by logging in with their Google account - no password required!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<br />
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## Technologies Used
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Our app was built using the following technologies:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- HTML / CSS / JavaScript
+- React
+- Node.js / Express
+- MongoDB
+- Google Identity Services
+- OAuth 2.0
 
-### Code Splitting
+<br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Future Plans
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Here are some of the future plans we have for ClimateScoop:
 
-### Making a Progressive Web App
+- Implement like and save functionalities
+- Add a comments section for each article
+- Provide a community feature for users to connect and exchange contact information
+- Implement Language Process Model to interpret the sentiment of each article, categorize them and offer advanced filtering options
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+We also plan to deploy the app live in the near future. Stay tuned for updates!
 
-### Advanced Configuration
+<br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Contributors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Alan Diko
+- Danica Yener
+- Rafael B Oliveira
 
-### `npm run build` fails to minify
+<br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## Credits
+
+We'd like to give special thanks to our instructors and mentors at DCI Digital Career Institute GmbH for their guidance and support throughout this one year journey.
+
+<br />
+
+---
+
+## Contributing
+
+We welcome contributions from other developers! If you'd like to contribute to ClimateScoop, please follow these guidelines:
+
+- Submit bug reports and feature requests through the issue tracker
+- Make sure your code adheres to the project's coding style
+- Submit pull requests with clear descriptions and explanations of your changes
+
+<br />
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE.md) file for details.
+
+<br />
+
+---
+
+<br />
+<br />
+<br />
+We hope you find ClimateScoop useful!
