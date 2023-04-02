@@ -1,11 +1,12 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Context } from "../context/ContextProvider";
 
 function GoogleButton() {
   const navigate = useNavigate();
-  const { user, setUser } = useContext(Context);
+  const buttonRef = useRef(null);
+  const { user, setUser, setUserData } = useContext(Context);
 
   useEffect(() => {
     const loggedInUser = sessionStorage.getItem("user");
@@ -47,10 +48,18 @@ function GoogleButton() {
 
   function handleSignOut(e) {
     setUser(null);
+    setUserData(null);
     document.getElementById("signIn").hidden = false;
     google.accounts.id.disableAutoSelect();
     sessionStorage.removeItem("user");
     if (window.location.pathname !== "/articles") navigate("/");
+  }
+
+  function handleKeyDown(e) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      buttonRef.current.click();
+    }
   }
 
   return (
@@ -59,6 +68,9 @@ function GoogleButton() {
         className="google-button"
         tabIndex="0"
         id="signIn"
+        onKeyDown={handleKeyDown}
+        ref={buttonRef}
+        role="button"
         style={{
           width: "fit-content",
           margin: "0 auto",
@@ -76,7 +88,6 @@ function GoogleButton() {
           }}
         >
           <img
-            tabIndex="0"
             src={user?.picture}
             alt="user image"
             width={"100%"}
@@ -85,6 +96,7 @@ function GoogleButton() {
           />
 
           <button
+            tabIndex="0"
             className="logout-btn"
             onClick={handleSignOut}
             style={{

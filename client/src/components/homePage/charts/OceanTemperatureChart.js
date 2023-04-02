@@ -23,7 +23,7 @@ function OceanTemperatureChart() {
   }, []);
 
   if (!externalRawData) {
-    return <div>Loading...</div>;
+    return <div class="spinner"></div>;
   }
 
   const sortedData = Object.keys(externalRawData)
@@ -91,7 +91,6 @@ function OceanTemperatureChart() {
         enableGridX={false}
         enableGridY={false}
         colors={"#00918E"}
-        // colors={{ scheme: "nivo" }}
         pointSize={2}
         theme={{
           textColor: "var(--white)",

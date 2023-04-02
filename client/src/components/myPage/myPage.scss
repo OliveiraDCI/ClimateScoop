@@ -70,6 +70,7 @@
         .dashboard-delete-button {
           background-color: var(--dark-green);
           color: var(--white);
+          margin-right: 0.2em;
         }
       }
     }
@@ -82,9 +83,6 @@
           padding-left: 0.5em;
           font-size: 1rem;
           color: var(--color-dark-grey);
-          &:first-child {
-            font-weight: bold;
-          }
         }
 
         &:nth-child(odd) {
@@ -95,13 +93,6 @@
           background-color: var(--color-lighter-green);
           box-shadow: 2px 2px 5px var(--color-tone-shadow);
           transition: all 0.3s ease-in-out;
-
-          td {
-            button {
-              background-color: var(--color-pastel-olive);
-              color: var(--color-white-green);
-            }
-          }
         }
       }
     }

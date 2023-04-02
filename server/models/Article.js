@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const { Schema } = mongoose;
 
 const articleSchema = new Schema(
@@ -11,7 +10,7 @@ const articleSchema = new Schema(
     imgDescription: { type: String },
     article: { type: String },
     references: { type: String },
-    likes: [String],
+    likes: [{ type: String }],
     owner: {
       type: Schema.Types.ObjectId,
       ref: "User",

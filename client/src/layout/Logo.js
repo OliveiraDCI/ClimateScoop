@@ -7,8 +7,22 @@ function Logo() {
   const handleClick = () => {
     navigate("/");
   };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      handleClick();
+    }
+  };
+
   return (
-    <div className="logo" onClick={handleClick} style={{ width: "35px" }}>
+    <div
+      className="logo"
+      tabIndex="0"
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      style={{ width: "35px" }}
+    >
       <img src={logo} alt="ClimateScoop logo" width={"100%"} />
     </div>
   );

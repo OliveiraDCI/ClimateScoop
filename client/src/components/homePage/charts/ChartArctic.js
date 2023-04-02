@@ -23,7 +23,7 @@ const ChartArctic = () => {
   }, []);
 
   if (!externalRawData) {
-    return <div>Loading...</div>;
+    return <div class="spinner"></div>;
   }
 
   const formattedData = externalRawData.map(({ year, extent }) => ({
