@@ -8,7 +8,7 @@ ClimateScoop is an easy-to-use web app designed to provide high-quality informat
 
 ## Introduction
 
-Welcome to ClimateScoop, a web app created by Alan, Danica, and Rafael as our final project for the Full Stack Web Development course at DCI Digital Career Institute. Our goal with this project was to provide an easy-to-use platform for users to stay informed about climate change and contribute their own ideas and perspectives.
+Welcome to ClimateScoop! This web app was created by Alan, Danica, and Rafael as our final project for the Full Stack Web Development course at DCI Digital Career Institute. Stay tuned for updates on when our app will be available for public use. In the meantime, feel free to check out our demo video on Youtube, and our presentation slides on Canva to learn more about the project - links are provided bellow.
 
 <br />
 
@@ -57,7 +57,14 @@ Our app was built using the following technologies:
 
 ## Future Plans
 
-In the future, we plan to implement like and save functionalities, as well as a comments section for each article. We also aim to grow the app to provide a community feature where people can connect or exchange contact information. We plan to deploy the app live in the near future.
+Here are some of the future plans we have for ClimateScoop:
+
+- Implement like and save functionalities
+- Add a comments section for each article
+- Provide a community feature for users to connect and exchange contact information
+- Implement Language Process Model to interpret the sentiment of each article, categorize them and offer advanced filtering options
+
+We also plan to deploy the app live in the near future. Stay tuned for updates!
 
 <br />
 
