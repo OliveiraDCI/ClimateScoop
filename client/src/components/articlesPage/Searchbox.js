@@ -1,5 +1,4 @@
 import "./searchBox.scss";
-// import { BiSearchAlt } from "react-icons/bi";
 
 function SearchBox({ value, onChange }) {
   const handleKeyDown = (e) => {
@@ -10,15 +9,13 @@ function SearchBox({ value, onChange }) {
     <div className="search-container">
       <form className="search-box">
         <input
+          tabIndex="0"
           type="text"
           placeholder="Search..."
           value={value}
           onChange={onChange}
           onKeyDown={handleKeyDown}
         />
-        {/* <div className="lupe">
-          <BiSearchAlt tabIndex="" />
-        </div> */}
       </form>
     </div>
   );

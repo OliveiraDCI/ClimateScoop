@@ -23,7 +23,7 @@ const ChartGlobalTemp = () => {
   }, []);
 
   if (!externalRawData) {
-    return <div>Loading...</div>;
+    return <div class="spinner"></div>;
   }
 
   const dataByYear = externalRawData.reduce((acc, { time, station }) => {

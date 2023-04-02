@@ -51,7 +51,7 @@ function ContextProvider({ children }) {
     }
   }, [user, update]);
 
-  if (!externalData) return <div>Loading...</div>;
+  if (!externalData) return <div class="spinner"></div>;
 
   return (
     <Context.Provider
