@@ -13,7 +13,7 @@ function ContextProvider({ children }) {
     (async () => {
       try {
         const response = await axios.get(
-          "https://newsdata.io/api/1/news?apikey=pub_180089098407af05742bc64588e14bd077ab6&category=environment&language=en"
+          "https://newsdata.io/api/1/news?apikey={key}&category=environment&language=en"
         );
 
         console.log("External data ", response.data.results);
